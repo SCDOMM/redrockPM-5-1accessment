@@ -1,12 +1,17 @@
 # redrockPM-5·1accessment
 红岩移动部门五一考核
+
 ## 一.简要介绍 ##
 这是一个简简单单的移动项目，一个任务清单类小app。由于时间问题，该项目的UI和部分功能有待改进，并且可能存在一些潜在的BUG需要处理。
+
 项目名称为“XiwangNotepad”，即“西王记事”，因为实在想不到应该用什么名字了（
+
 项目的图标是由豆包AI生成的。
+
 ### 1.技术栈 ###
 - Android API26和它的动物朋友们
 - Kotlin2.2.10和它的动物朋友们
+
 - 依赖库：
 1. Anroidx和它的动物朋友们
 2. retrofit2-convert-gson v2.6.1
@@ -15,17 +20,21 @@
 5. security-crypto v1.1.0-alpha06:用于构建EncryptedSharedPreferences的androidx官方依赖库
 6. room v2.8.4数据库以及相关依赖
 7. ksp插件
+
 - 架构：
 1. MVVM架构(注：由于时间紧迫，部分模块可能不遵循MVVM架构)
+
 - 线程通信方式：
 1. ViewModel
 2. ViewModel里的LiveData
+
 - 已有功能：
 1. 实现登陆注册功能
 2. 显示已创建任务
 3. 实现对任务的增删查改
 4. 实现对任务的任意拖拽
 5. 右滑任务能进行删除
+
 ### 2.任务主页 ###
 ①任务View由material库的CardView和其他常见控件组合而来，并通过RecyclerView实现排列和组合。
 
@@ -52,9 +61,13 @@
 
 ### 4.个人页面 ###
 由于没有配套后端，目前暂时没有登录和注册检测。
+
 由于时间问题，暂不支持修改个人资料
+
 ①通过Retrofit在ViewModel中进行网络请求，并在请求成功后改变LiveData的值，以此实现改变UI的操作。
+
 ②同时，这里自建了一个Login/Register State密封类用于表述请求的状态：请求成功、请求失败、正在请求。在取得Retrofit的Callback后，程序会根据返回的情况修改LiveData中Login/Register State的值，实现响应。
+
 ## 二.功能展示 ##
 
 1.登录注册(无配套后端，且登录检测功能暂未实装)
