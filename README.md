@@ -28,15 +28,25 @@
 5. 右滑任务能进行删除
 ### 2.任务主页 ###
 ①任务View由material库的CardView和其他常见控件组合而来，并通过RecyclerView实现排列和组合。
+
 任务的数据类使用了@Entity进行标记，使之可以被ROOM数据库进行增删改查。
+
 ②侧滑删除功能使用了ItemTouchHelper，作者从文档和网上一个一个抄实现了侧滑删除功能。
+
 为了实现功能，作者定义了一个接口，其中包含onItemMove，onItemRemove，onItemComplete三大方法。
+
 自定义的ItemTouchHelper通过实现该接口，可以实现Fragment/Activity中对应的接口方法。通过重写onSwiped方法实现侧滑监听，而item会在侧滑后会弹出一个Dialog提示你是否进行删除，若选择是，则会应用ViewModel中的removeItem方法将ROOM中对应的表删除；若选择不是，则会让适配器刷新，实现任务被拉回。
+
 ③拖拽功能使用了ItemTouchHelper。通过重写onMove方法实现移动监听，会调用接口的onItemMove方法，并且在对应的方法中使用adapter的notifyItemMoved方法改变item的位置。
+
 当拖拽完成后，ItemTouchHelper的clearView方法会被触发，此时在其中调用onItemComplete方法，则会确认拖拽完成后的位置，并改变ROOM数据库中对应表的对应次序。
+
 ④通过自定义接口和监听方法，用户可以点击任务以打开其编辑界面，并对对应任务进行修改。
+
 同时，通过BottomSheetDialogFragment方法，可以让用户在触发点击事件时弹出一个BottomSheet。该BottomSheet包含有DatePicker和TimePicker，双方通过一个ViewModel联系在一起，以此支持用户任意选择时间
+
 ⑤通过SwipeRefreshLayout实现刷新方法。每次触发刷新事件都会刷新ViewModel中的值，以此让RV本身刷新。
+
 ### 3.创建任务 ###
 由于时间问题，“创建任务”采用的方法与“任务主页”的④点一致。只不过ViewModel中操作数据库的方法从update变为了Insert
 
