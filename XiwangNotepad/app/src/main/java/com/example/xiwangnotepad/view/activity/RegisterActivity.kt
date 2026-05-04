@@ -30,13 +30,14 @@ class RegisterActivity : AppCompatActivity() {
         binding.registerIvSwitch.setOnClickListener {
             val intent= Intent(this, LoginActivity::class.java)
             startActivity(intent)
+            finish()
         }
         binding.registerBtnConfirm.setOnClickListener{
             binding.registerEtvUsername.wordMaxLimit(8)
             binding.registerEtvAccount.wordMaxLimit(12)
             binding.registerEtvPassword.wordMaxLimit(12)
             binding.registerEtvRepassword.wordMaxLimit(12)
-            if (!binding.registerEtvPassword.text.equals(binding.registerEtvRepassword)){
+            if (binding.registerEtvPassword.text.toString() != binding.registerEtvRepassword.text.toString()){
                 showToast(this,"错误！两次输入密码不一致！")
                 return@setOnClickListener
             }

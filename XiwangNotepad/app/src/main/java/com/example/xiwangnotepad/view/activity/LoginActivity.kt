@@ -59,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
                     finish()
                 }
                 is LoginState.Failed->{
-                    showToast(this,"登录失败！请检查网络后重试！"+value.msg)
+                    showToast(this,"登录失败！"+value.msg)
                 }
             }
         })

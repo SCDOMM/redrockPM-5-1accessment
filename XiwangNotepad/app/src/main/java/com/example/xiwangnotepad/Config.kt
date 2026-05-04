@@ -9,6 +9,6 @@ package com.example.xiwangnotepad
  *
  */
 object Config {
-    const val BASE_URI:String="xxxxx"
-    const val BASE_IMPORT:String="8080"
+    const val BASE_URI:String="https://xxxxx"
+    const val BASE_IMPORT:String=":8080"
 }

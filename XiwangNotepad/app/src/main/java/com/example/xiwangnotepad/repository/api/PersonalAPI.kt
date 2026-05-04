@@ -6,6 +6,7 @@ import com.example.xiwangnotepad.repository.data.LoginModel
 import com.example.xiwangnotepad.repository.data.RegisterDTO
 import com.example.xiwangnotepad.repository.data.RegisterModel
 import retrofit2.Call
+import retrofit2.http.Body
 import retrofit2.http.POST
 
 /**   
@@ -19,11 +20,11 @@ import retrofit2.http.POST
 
 interface LoginAPI {
    @POST("/login")
-   fun postData(data: LoginModel): Call<ResponseSingleData<LoginDTO>>
+   fun postData(@Body data: LoginModel): Call<ResponseSingleData<LoginDTO>>
 }
 interface RegisterAPI{
     @POST("/register")
-    fun postData(data: RegisterModel): Call<ResponseSingleData<RegisterDTO>>
+    fun postData(@Body data: RegisterModel): Call<ResponseSingleData<RegisterDTO>>
 }
 
 
