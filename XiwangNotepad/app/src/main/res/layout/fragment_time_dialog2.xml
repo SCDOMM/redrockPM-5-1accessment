@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.fragment.BottomTimeFragment2">
+    <TextView
+        android:id="@+id/time2_tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="选择具体时间"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <TimePicker
+        android:id="@+id/time2_dp_tinytime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:timePickerMode="spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/time2_tv_title"
+        />
+    <Button
+        android:id="@+id/time2_btn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="确定"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/time2_dp_tinytime"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
